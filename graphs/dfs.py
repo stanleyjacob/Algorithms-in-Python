@@ -4,19 +4,24 @@ class Node:
 		self.val = val
 		self.visited = False
 		self.adj_list = []
-
+	
+	def visit(curr_node):
+		curr_node.visited = True
+		
 	def dfs(self, root):
 		if self.root == None:
 			return
 		self.visit(self.root)
-		root.visited = True
 		for adj_node in self.adj_list:
 			if adj_node.visited == False:
 				search(adj_node)
 
+	def dfs_visit(self, curr_graph, curr_node):
+		time += 1
+		
+				
 	def bfs(self, root):
 		q = Queue()
-		root.visited = True
 		self.visit(root)
 		q.put(root)
 
@@ -24,6 +29,5 @@ class Node:
 			curr_node = q.get()
 			for adj_node in curr_node.adj_list:
 				if adj_node.visited == False:
-					visit(adj_node)
-					adj_node.visited = True
+					self.visit(adj_node)
 					q.put(adj_node)
